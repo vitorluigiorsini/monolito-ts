@@ -1,5 +1,5 @@
 import ProductGateway from '../../gateway/product.gateway'
-import { FindProductInputDto, FindProductOutputDto } from './find-product.dto'
+import { FindProductInputDto, FindProductOutputDto } from './find-product.usecase.dto'
 
 export default class FindProductUseCase {
   constructor(private readonly productRepository: ProductGateway) {}

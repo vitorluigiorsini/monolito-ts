@@ -4,7 +4,7 @@ import ClientRepository from './client.repository'
 import Id from '../../@shared/domain/value-object/id.value-object'
 import Client from '../domain/client.entity'
 
-describe('product repository test', () => {
+describe('client repository test', () => {
   let sequelize: Sequelize
 
   beforeEach(async () => {
