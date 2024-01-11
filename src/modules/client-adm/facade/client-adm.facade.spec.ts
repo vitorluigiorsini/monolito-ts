@@ -3,8 +3,8 @@ import { ClientModel } from '../repository/client.model'
 import ClientRepository from '../repository/client.repository'
 import AddClientUseCase from '../usecase/add-client/add-client.usecase'
 import ClientAdmFacade from './client-adm.facade'
-import FindClientUseCase from '../usecase/find-client/find-client.usecase'
 import ClientAdmFacadeFactory from '../factory/facade.factory'
+import Address from '../../@shared/domain/value-object/address.value-object'
 
 describe('ClientAdmFacade tests', () => {
   let sequelize: Sequelize
@@ -37,7 +37,15 @@ describe('ClientAdmFacade tests', () => {
       id: '1',
       name: 'Client 1',
       email: 'client@example.com',
-      address: 'Address 1'
+      document: '00000000000',
+      address: new Address({
+        street: 'Client street',
+        number: '1',
+        complement: 'Client complement',
+        city: 'Client city',
+        state: 'Client state',
+        zipCode: '00000000'
+      })
     }
 
     await facade.add(input)
@@ -48,7 +56,8 @@ describe('ClientAdmFacade tests', () => {
     expect(client.id).toEqual(input.id)
     expect(client.name).toEqual(input.name)
     expect(client.email).toEqual(input.email)
-    expect(client.address).toEqual(input.address)
+    expect(client.document).toEqual(input.document)
+    expect(client.street).toEqual(input.address.street)
   })
 
   it('should find a client', async () => {
@@ -66,7 +75,15 @@ describe('ClientAdmFacade tests', () => {
       id: '1',
       name: 'Client 1',
       email: 'client@example.com',
-      address: 'Address 1'
+      document: '00000000000',
+      address: new Address({
+        street: 'Client street',
+        number: '1',
+        complement: 'Client complement',
+        city: 'Client city',
+        state: 'Client state',
+        zipCode: '00000000'
+      })
     }
 
     await facade.add(input)
