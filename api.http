@@ -1,0 +1,80 @@
+### Criar novo cliente
+POST http://localhost:3333/client
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Client 1",
+  "email": "client@example.com",
+  "document": "00000000000",
+  "address": {
+    "street": "Client street",
+    "number": "1",
+    "complement": "Client complement",
+    "city": "Client city",
+    "state": "Client state",
+    "zipCode": "00000000"
+  }
+}
+
+### Criar um novo produto
+POST http://localhost:3333/product
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "description": "Product 1 description",
+  "purchasePrice": 100,
+  "stock": 10
+}
+
+### Criar um novo produto 2
+POST http://localhost:3333/product
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "Product 2",
+  "description": "Product 2 description",
+  "purchasePrice": 200,
+  "stock": 20
+}
+
+### Adiciona um produto ao catalogo
+POST http://localhost:3333/product/catalog
+Content-Type: application/json
+
+{
+  "id": "1",
+  "salesPrice": 120
+}
+
+### Adiciona um produto 2 ao catalogo
+POST http://localhost:3333/product/catalog
+Content-Type: application/json
+
+{
+  "id": "2",
+  "salesPrice": 220
+}
+
+### Fazer checkout
+POST http://localhost:3333/checkout
+Content-Type: application/json
+
+{
+  "clientId": "1",
+  "products": [
+    {
+      "productId": "1"
+    },
+    {
+      "productId": "2"
+    }
+  ]
+}
+
+### Buscar uma invoice
+GET http://localhost:3333/invoice/7953a6eb-dbe7-41af-985d-ea52511c81eb
+Content-Type: application/json

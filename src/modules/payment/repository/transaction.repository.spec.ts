@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript'
-import { TransactionModel } from './transaction.model'
+import TransactionModel from './transaction.model'
 import ProcessPaymentUseCase from '../usecase/process-payment/process-payment.usecase'
 import TransactionRepository from './transaction.repository'
 import Transaction from '../domain/transaction'

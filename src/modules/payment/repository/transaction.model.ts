@@ -4,7 +4,7 @@ import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript'
   tableName: 'payments',
   timestamps: false
 })
-export class TransactionModel extends Model {
+export default class TransactionModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })
   id: string

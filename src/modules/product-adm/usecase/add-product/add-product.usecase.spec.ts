@@ -13,6 +13,7 @@ describe('Add product usecase unit test', () => {
     const usecase = new AddProductUseCase(productRepository)
 
     const input = {
+      id: '1',
       name: 'Product 1',
       description: 'Product 1 description',
       purchasePrice: 100,
@@ -22,7 +23,7 @@ describe('Add product usecase unit test', () => {
     const result = await usecase.execute(input)
 
     expect(productRepository.add).toBeCalled()
-    expect(result.id).toBeDefined()
+    expect(result.id).toBe(input.id)
     expect(result.name).toBe(input.name)
     expect(result.description).toBe(input.description)
     expect(result.purchasePrice).toBe(input.purchasePrice)

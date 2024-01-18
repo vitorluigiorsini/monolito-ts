@@ -1,10 +1,9 @@
 import { Sequelize } from 'sequelize-typescript'
-import { ClientModel } from '../repository/client.model'
+import ClientModel from '../repository/client.model'
 import ClientRepository from '../repository/client.repository'
 import AddClientUseCase from '../usecase/add-client/add-client.usecase'
 import ClientAdmFacade from './client-adm.facade'
 import ClientAdmFacadeFactory from '../factory/facade.factory'
-import Address from '../../@shared/domain/value-object/address.value-object'
 
 describe('ClientAdmFacade tests', () => {
   let sequelize: Sequelize
@@ -38,14 +37,14 @@ describe('ClientAdmFacade tests', () => {
       name: 'Client 1',
       email: 'client@example.com',
       document: '00000000000',
-      address: new Address({
+      address: {
         street: 'Client street',
         number: '1',
         complement: 'Client complement',
         city: 'Client city',
         state: 'Client state',
         zipCode: '00000000'
-      })
+      }
     }
 
     await facade.add(input)
@@ -76,14 +75,14 @@ describe('ClientAdmFacade tests', () => {
       name: 'Client 1',
       email: 'client@example.com',
       document: '00000000000',
-      address: new Address({
+      address: {
         street: 'Client street',
         number: '1',
         complement: 'Client complement',
         city: 'Client city',
         state: 'Client state',
         zipCode: '00000000'
-      })
+      }
     }
 
     await facade.add(input)

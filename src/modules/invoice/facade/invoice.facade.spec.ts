@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript'
-import { InvoiceModel } from '../repository/invoice.model'
-import { InvoiceItemsModel } from '../repository/invoice-items.model'
+import InvoiceModel from '../repository/invoice.model'
+import InvoiceItemsModel from '../repository/invoice-items.model'
 import InvoiceRepository from '../repository/invoice.repository'
 import GenerateInvoiceUseCase from '../usecase/generate/generate.usecase'
 import InvoiceItems from '../domain/invoice-items.entity'

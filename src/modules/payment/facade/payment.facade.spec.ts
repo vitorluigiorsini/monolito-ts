@@ -1,8 +1,5 @@
 import { Sequelize } from 'sequelize-typescript'
-import { TransactionModel } from '../repository/transaction.model'
-import TransactionRepository from '../repository/transaction.repository'
-import ProcessPaymentUseCase from '../usecase/process-payment/process-payment.usecase'
-import PaymentFacade from './payment.facade'
+import TransactionModel from '../repository/transaction.model'
 import PaymentFacadeFactory from '../factory/facade.factory'
 
 describe('payment facade interface tests', () => {
@@ -25,10 +22,6 @@ describe('payment facade interface tests', () => {
   })
 
   it('should create a transaction', async () => {
-    // const repository = new TransactionRepository()
-    // const processPaymentUseCase = new ProcessPaymentUseCase(repository)
-    // const facade = new PaymentFacade(processPaymentUseCase)
-
     const facade = PaymentFacadeFactory.create()
 
     const input = {

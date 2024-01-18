@@ -1,3 +1,8 @@
+export interface AddCatalogProductFacadeInputDto {
+  id: string
+  salesPrice: number
+}
+
 export interface FindStoreCatalogFacadeInputDto {
   id: string
 }
@@ -19,6 +24,7 @@ export interface FindAllStoreCatalogFacadeOutputDto {
 }
 
 export default interface StoreCatalogFacadeInterface {
+  add(input: AddCatalogProductFacadeInputDto): Promise<void>
   find(id: FindStoreCatalogFacadeInputDto): Promise<FindStoreCatalogFacadeOutputDto>
-  findAll(): Promise<FindAllStoreCatalogFacadeOutputDto>
+  findAll(input: any): Promise<FindAllStoreCatalogFacadeOutputDto>
 }

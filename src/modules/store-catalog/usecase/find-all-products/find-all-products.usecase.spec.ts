@@ -18,6 +18,7 @@ const product2 = new Product({
 
 const MockRepository = () => {
   return {
+    add: jest.fn(),
     find: jest.fn(),
     findAll: jest.fn().mockReturnValue(Promise.resolve([product, product2]))
   }
@@ -25,12 +26,12 @@ const MockRepository = () => {
 
 describe('find all products usecase unit test', () => {
   it('should find all products', async () => {
-    const productRepository = MockRepository()
-    const usecase = new FindAllProductsUsecase(productRepository)
+    const catalogRepository = MockRepository()
+    const usecase = new FindAllProductsUsecase(catalogRepository)
 
-    const result = await usecase.execute()
+    const result = await usecase.execute({})
 
-    expect(productRepository.findAll).toHaveBeenCalled()
+    expect(catalogRepository.findAll).toHaveBeenCalled()
     expect(result.products.length).toBe(2)
     expect(result.products[0].id).toBe('1')
     expect(result.products[0].name).toBe('Product 1')

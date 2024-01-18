@@ -26,23 +26,23 @@ export default class AddClientUseCase {
         zipCode: input.address.zipCode
       })
     }
-
     const client = new Client(props)
-    this._clientRepository.add(client)
+
+    await this._clientRepository.add(client)
 
     return {
       id: client.id.id,
       name: client.name,
       email: client.email,
       document: client.document,
-      address: new Address({
+      address: {
         street: client.address.street,
         number: client.address.number,
         complement: client.address.complement,
         city: client.address.city,
         state: client.address.state,
         zipCode: client.address.zipCode
-      }),
+      },
       createdAt: client.createdAt,
       updatedAt: client.updatedAt
     }
